@@ -25,13 +25,48 @@ fi
 
 dnf module disable nodejs -y &>>$logfile
 validate $? "module disabled"
+
 dnf module enable nodejs:18 -y&>>$logfile
 validate $? "module denabled"
+
 dnf install nodejs -y&>>$logfile
 validate $? "Nodejs installed"
+
 useradd roboshop
 validate $? "useradded"
+
 mkdir /app&>>$logfile
 validate $? "made app directory"
+
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 validate $? "Downloaded the application code"
+
+cd /app &>>$logfile
+validate $? "go to app directory"
+
+unzip /tmp/catalogue.zip &>>$logfile
+validate $? "Unzip"
+
+cd /app &>>$logfile
+validate $? "go to app directory"
+
+npm install &>>$logfile
+validate $? "npm installed"
+
+cp /home/centos/shell76s/Roboshop/catalogue.service /etc/systemd/system/catalogue.service &>>$logfile
+validate $? "copied catalogue.service "
+
+systemctl daemon-reload &>>$logfile
+validate $? "daemon-reloadp"
+
+systemctl enable catalogue &>>$logfile
+validate $? "enabled catalogue"
+
+systemctl start catalogue &>>$logfile
+validate $? "started catalogue"
+
+cp /home/centos/shell76s/Roboshop/mongo.repo /etc/yum.repos.d/mongo.repo
+validate $? "copied mongorep"
+
+dnf install mongodb-org-shell -y
+validate $? "installed mongodb-org-shell "
