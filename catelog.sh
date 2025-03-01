@@ -11,8 +11,10 @@ validate (){
     if [ $1 -ne 0 ]
     then
     echo -e "$R $2 failed"
+    exit 127
     else
     echo -e " $G $2 success"
+    fi
 }
 if [ $ID -ne 0 ]
 then
