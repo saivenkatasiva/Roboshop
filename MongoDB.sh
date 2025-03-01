@@ -38,5 +38,5 @@ validate $? "Enables mongodB"
 systemctl start mongod &>>$logfile
 validate $? "starting MONGODB"
 
-sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$logfile
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$logfile
 validate $? "updating 0.0.0.0,remote access to mongo DB"
