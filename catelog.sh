@@ -2,9 +2,9 @@
 ID=$(id -u)
 timestamp=$(date +F-%H-%M-%S)
 logfile="/tmp/$0-$timestamp.log"
-R="\e[32m"
-G="\e[33m"
-Y="\e[34m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
 
 validate (){
@@ -25,3 +25,6 @@ fi
 
 dnf module disable nodejs -y &>>$logfile
 validate $? "module disabled"
+dnf module enable nodejs:18 -y&>>$logfile
+validate $? "module denabled"
+dnf install nodejs -y&>>$logfile
