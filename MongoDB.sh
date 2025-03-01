@@ -30,8 +30,14 @@ fi
 for package in $@
 do
 yum list installed $package  &>>$logfile
-validate $? "$package is not installed"
+if [ $? -ne 0 ]
+then
 yum install $package -y
 validate $? "$package installed"
+else
+echo "$package already installed"
+fi
 done
+
+
 
