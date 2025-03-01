@@ -40,3 +40,6 @@ validate $? "starting MONGODB"
 
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$logfile
 validate $? "updating 0.0.0.0,remote access to mongo DB"
+
+systemctl restart mongod &>>$logfile
+validate $? "restart mongodo success"
