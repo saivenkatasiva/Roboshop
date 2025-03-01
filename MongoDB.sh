@@ -24,7 +24,7 @@ then
 echo -e "$R your not root user"
 exit 127
 else
-echo -e "$Gyour root user"
+echo -e "$G your root user"
 fi
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
@@ -32,11 +32,11 @@ echo -e "$G copied successfully $N"
 dnf install mongodb-org -y &>>$logfile
 validate $? "MongoDB success"
 
-systemctl enable mongod$>>$logfile
+systemctl enable mongodb &>>$logfile
 validate $? "Enables mongodB"
 
-systemctl start mongod$>>$logfile
+systemctl start mongodb &>>$logfile
 validate $? "starting MONGODB"
 
-sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf $>>$logfile
+sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$logfile
 validate $? "updating 0.0.0.0,remote access to mongo DB"
