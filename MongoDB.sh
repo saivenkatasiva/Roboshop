@@ -27,17 +27,9 @@ else
 echo -e "$Gyour root user"
 fi
 
-for package in $@
-do
-yum list installed $package  &>>$logfile
-if [ $? -ne 0 ]
-then
-yum install $package -y
-validate $? "$package installed"
-else
-echo "$package already installed"
-fi
-done
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+dnf install mongodb-org -y &>>$logfile
+validate $? "MongoDB success"
 
 
 
