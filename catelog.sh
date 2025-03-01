@@ -6,6 +6,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+MONGOHOST=172.31.36.126
 
 validate (){
     if [ $1 -ne 0 ]
@@ -19,6 +20,7 @@ validate (){
 if [ $ID -ne 0 ]
 then
 echo -e "$R your not root user, please access with root user$N"
+exit 127
 else
 echo -e "$G your root user $N"
 fi
@@ -70,3 +72,6 @@ validate $? "copied mongorep"
 
 dnf install mongodb-org-shell -y
 validate $? "installed mongodb-org-shell "
+
+mongo --host $MONGOHOST </app/schema/catalogue.js
+validate $? "loading catalog data inti mongodb "
