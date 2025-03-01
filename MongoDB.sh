@@ -32,10 +32,10 @@ echo -e "$G copied successfully $N"
 dnf install mongodb-org -y &>>$logfile
 validate $? "MongoDB success"
 
-systemctl enable mongodb &>>$logfile
+systemctl enable mongod &>>$logfile
 validate $? "Enables mongodB"
 
-systemctl start mongodb &>>$logfile
+systemctl start mongod &>>$logfile
 validate $? "starting MONGODB"
 
 sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$logfile
