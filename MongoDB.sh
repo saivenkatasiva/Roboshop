@@ -28,6 +28,7 @@ echo -e "$Gyour root user"
 fi
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
+echo "$G copied successfully $N"
 dnf install mongodb-org -y &>>$logfile
 validate $? "MongoDB success"
 
