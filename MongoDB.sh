@@ -11,18 +11,20 @@ N="\e[0m"
 validate(){
 if [ $1 -ne 0 ]
 then
-echo " $R failed to install $2 $N"
+echo -e " $R failed to install $2 $N"
+exit 127
 else
-echo "$G installation success $2 $N"
+echo -e "$G installation success $2 $N"
 fi
 
 }
 
 if [ $ID -ne 0 ]
 then
-echo "your not root user"
+echo -e "$R your not root user"
+exit 127
 else
-echo "your root user"
+echo -e "$Gyour root user"
 fi
 
 for package in $@
