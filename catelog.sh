@@ -28,3 +28,4 @@ validate $? "module disabled"
 dnf module enable nodejs:18 -y&>>$logfile
 validate $? "module denabled"
 dnf install nodejs -y&>>$logfile
+validate $? "Nodejs installed"
