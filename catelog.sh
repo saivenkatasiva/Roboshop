@@ -29,3 +29,7 @@ dnf module enable nodejs:18 -y&>>$logfile
 validate $? "module denabled"
 dnf install nodejs -y&>>$logfile
 validate $? "Nodejs installed"
+useradd roboshop
+validate $? "useradded"
+mkdir /app&>>$logfile
+validate $? "made app directory"
