@@ -6,7 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 logfile="/tmp/$0-$timestamp.log"
-exec &>$logfile
+
 
 validate(){
     if [ $1 -ne 0 ]
