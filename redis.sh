@@ -26,7 +26,7 @@ else
 echo -e "$G your root user"
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
 validate $? "installed remirep"
 
 dnf module enable redis:remi-6.2 -y
