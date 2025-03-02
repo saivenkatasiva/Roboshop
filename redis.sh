@@ -35,8 +35,14 @@ validate $? "module resetphp"
 dnf install redis nano
 validate $? "install redis nano"
 
-dnf module enable redis:remi-6.2 -y
-validate $? "module enabled redis"
+cp home/centos/Roboshop/redis.conf /etc/redis/redis.conf
+validate $? "Copied"
+
+systemctl start redis.service
+validate $? "started redis"
+
+#dnf module enable redis:remi-6.2 -y
+#validate $? "module enabled redis"
 
 dnf install redis -y
 validate $? "installed redis"
