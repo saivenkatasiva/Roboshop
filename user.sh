@@ -12,6 +12,7 @@ validate(){
 if [ $1 -ne 0 ]
 then
 echo -e "$R $2 ....FAILED "
+exit 127
 else
 echo -e "$G $2 ....SUCCESS"
 fi
@@ -20,6 +21,7 @@ fi
 if [ $ID -ne 0 ]
 then
 echo -e "$R your not root user"
+exit 127
 else
 echo -e "$G your root user"
 fi
