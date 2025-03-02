@@ -70,8 +70,8 @@ validate $? "started catalogue"
 cp /home/centos/shell76s/Roboshop/mongo.repo /etc/yum.repos.d/mongo.repo
 validate $? "copied mongorep"
 
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y &>>$logfile
 validate $? "installed mongodb-org-shell "
 
-mongo --host $MONGOHOST </app/schema/catalogue.js
+mongo --host $MONGOHOST </app/schema/catalogue.js &>>$logfile
 validate $? "loading catalog data inti mongodb "
