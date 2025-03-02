@@ -1,5 +1,5 @@
 #!/bin/bash
-ID=$(id-u)
+ID=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
 logfile="/tmp/$0-$timestamp-log"
 R="\e[31m"
