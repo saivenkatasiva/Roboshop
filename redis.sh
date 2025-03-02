@@ -32,11 +32,13 @@ validate $? "installed remirep"
 dnf module reset php
 validate $? "module resetphp"
 
-dnf module install php:remi-8.0
-validate $? "module module install php"
+
 
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 validate $? "installed remirep"
+
+dnf module install php:remi-8.0
+validate $? "module module install php"
 
 
 dnf module enable redis:remi-6.2 -y
