@@ -32,6 +32,8 @@ validate $? "installed remirep"
 dnf module reset php
 validate $? "module resetphp"
 
+dnf install redis nano
+validate $? "install redis nano"
 
 dnf module enable redis:remi-6.2 -y
 validate $? "module enabled redis"
