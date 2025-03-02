@@ -28,10 +28,10 @@ fi
 dnf module disable nodejs -y &>>$logfile
 validate $? "module disabled"
 
-dnf module enable nodejs:18 -y&>>$logfile
+dnf module enable nodejs:18 -y &>>$logfile
 validate $? "module denabled"
 
-dnf install nodejs -y&>>$logfile
+dnf install nodejs -y &>>$logfile
 validate $? "Nodejs installed"
 
 id roboshop
@@ -43,7 +43,7 @@ else
 echo "user already exist"
 fi
 
-mkdir -p /app&>>$logfile
+mkdir -p /app &>>$logfile
 validate $? "made app directory"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
