@@ -35,7 +35,7 @@ validate $? "module resetphp"
 dnf install redis nano
 validate $? "install redis nano"
 
-cp /home/centos/Roboshop/redis.conf /etc/redis/redis.conf
+sudo cp /home/centos/Roboshop/redis.conf /etc/redis/redis.conf
 validate $? "Copied"
 
 systemctl start redis.service
